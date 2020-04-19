@@ -9,19 +9,22 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <meta property="og:type" content="닮은꼴 테스트"> 
     <title>인공지능 동물상 테스트</title>
+    <meta property="og:title" content="인공지능 동물상 테스트">
     <meta name="description" content="나는 어떤 동물과 닮았을까?간편하게 확인해보세요~">
-    <meta property="og:image" content="https://animal-face-test.netlify.app/dog.png">
-<meta property="og:url" content="https://animal-face-test.netlify.app/">
-    
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="인공지능 동물상 테스트">
+    <meta property="og:description" content="나는 어떤 동물과 닮았을까?간편하게 사진 한장으로 확인해보세요~By유튜브 조코딩">
+    <meta property="og:url" content="https://animal-face-test.netlify.app/">
+
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e9b3bce8fe4f007"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e9b3bce8fe4f007"></script>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    
+
     <meta name="naver-site-verification" content="5ecf76ce1f4287620896082bf9e62d26b400e481" />
     <link rel="canonical" href="https://animal-face-test.netlify.app//article/article1.html">
     <meta name="robots" content="index,follow">
@@ -88,13 +91,13 @@
             <img class="file-upload-image" id="face-image" src="#" alt="your image" />
             <p class="result-message"></p>
             <div id="label-container"></div>
-            
-                <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                <div class="addthis_inline_share_toolbox"></div>
-            
+
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <div class="addthis_inline_share_toolbox"></div>
+
             <div class="image-title-wrap">
                 <button type="button" onclick="removeUpload()" class="remove-image">다른 사진으로 해보기
-                     <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
                     <span class=""></span>
                 </button>
             </div>
@@ -191,47 +194,47 @@
             prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
             console.log(prediction[0].className);
             var resultMessege;
-                switch (prediction[0].className) {
+            switch (prediction[0].className) {
                 case "dog":
                     resultMessege = "강아지상"
                     break;
                 case "cat":
                     resultMessege = "고양이상"
                     break;
-                    case "rabbit":
+                case "rabbit":
                     resultMessege = "쥐상"
                     break;
-                    case "dinosaur":
+                case "dinosaur":
                     resultMessege = "공룡상"
                     break;
-                    case "bear":
+                case "bear":
                     resultMessege = "곰상"
                     break;
-                    case "wolf":
+                case "wolf":
                     resultMessege = "늑대상"
                     break;
-                    case "frog":
+                case "frog":
                     resultMessege = "개구리상"
                     break;
-                    case "horse":
+                case "horse":
                     resultMessege = "말상"
                     break;
-                    case "fox":
+                case "fox":
                     resultMessege = "여우상"
                     break;
-                    case "monkey":
+                case "monkey":
                     resultMessege = "원숭이상"
                     break;
-                    case "rat":
+                case "rat":
                     resultMessege = "쥐상"
                     break;
                 default:
-                resultMessege = "알수없음"
+                    resultMessege = "알수없음"
             }
             $('.result-message').html(resultMessege);
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction =
-                    prediction[i].className + ": " + (prediction[i].probability.toFixed(2))*100 + "%";
+                    prediction[i].className + ": " + (prediction[i].probability.toFixed(2)) * 100 + "%";
                 labelContainer.childNodes[i].innerHTML = classPrediction;
             }
         }
